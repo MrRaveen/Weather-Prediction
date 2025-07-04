@@ -1,0 +1,142 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36 Edg/138.0.0.0" version="27.2.0">
+  <diagram name="Page-1" id="8yErRkn8pgSnhtUZmVBp">
+    <mxGraphModel dx="1111" dy="520" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="yswiqm0d8ig4Vrar8J12-1" value="Fact_AirQuality_in_next_12_months" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="320" y="415" width="240" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-2" value="&lt;div&gt;ConcentrationKey&lt;/div&gt;&lt;div&gt;MetrologicalKey&lt;/div&gt;&lt;div&gt;DateKey&lt;/div&gt;&lt;div&gt;UrbanizationKey&lt;/div&gt;AQILevel&lt;div&gt;RainPrediction&lt;/div&gt;&lt;div&gt;DateKey&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-1" vertex="1">
+          <mxGeometry y="50" width="240" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-5" value="Dim_Urbanization" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="70" y="180" width="180" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-6" value="WasteGeneration&lt;div&gt;LandUse&lt;/div&gt;&lt;div&gt;AffordableHousingUnits&amp;nbsp;&lt;/div&gt;&lt;div&gt;PredictedHousing&lt;/div&gt;&lt;div&gt;MonthlyCommunityPopulation&lt;/div&gt;&lt;div&gt;newRoadDensity&lt;/div&gt;&lt;div&gt;UrbanizationKey&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-5" vertex="1">
+          <mxGeometry y="50" width="180" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-7" value="Dim_metrologicalConditions" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="550" y="170" width="190" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-8" value="Temperature&lt;div&gt;Humidity&lt;/div&gt;&lt;div&gt;Pressure&lt;/div&gt;&lt;div&gt;Precipitation&lt;/div&gt;&lt;div&gt;WindSpeed&lt;/div&gt;&lt;div&gt;MetrologicalKey&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-7" vertex="1">
+          <mxGeometry y="50" width="190" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-10" value="Dim_date" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="630" y="655" width="150" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-11" value="Year&lt;div&gt;Month&lt;/div&gt;&lt;div&gt;Date&lt;/div&gt;&lt;div&gt;DateKey&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-10" vertex="1">
+          <mxGeometry y="50" width="150" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-12" value="Dim_pollutant" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="75" y="655" width="145" height="155" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-13" value="GroundLevelOzone&lt;div&gt;PM_Value&lt;/div&gt;&lt;div&gt;CarbonMonoxide&lt;/div&gt;&lt;div&gt;SulfurDioxide&lt;/div&gt;&lt;div&gt;NitrogenDioxide&lt;/div&gt;&lt;div&gt;ConcentrationKey&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-12" vertex="1">
+          <mxGeometry y="50" width="145" height="105" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-15" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-12" target="yswiqm0d8ig4Vrar8J12-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="775" as="sourcePoint" />
+            <mxPoint x="330" y="765" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-16" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-2" target="yswiqm0d8ig4Vrar8J12-10" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="550" y="815" as="sourcePoint" />
+            <mxPoint x="600" y="765" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-17" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-1" target="yswiqm0d8ig4Vrar8J12-6" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-10" y="605" as="sourcePoint" />
+            <mxPoint x="40" y="555" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-18" value="" style="endArrow=none;html=1;rounded=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-1" target="yswiqm0d8ig4Vrar8J12-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="130" y="575" as="sourcePoint" />
+            <mxPoint x="180" y="525" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-23" value="" style="endArrow=none;html=1;rounded=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-10" target="yswiqm0d8ig4Vrar8J12-28" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="710" y="875" as="sourcePoint" />
+            <mxPoint x="866.7391304347825" y="555" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-24" value="" style="endArrow=none;html=1;rounded=0;" parent="1" target="yswiqm0d8ig4Vrar8J12-8" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="820" y="405" as="sourcePoint" />
+            <mxPoint x="650" y="505" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-27" value="Fact_roadAccidentsIn2025" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="820" y="405" width="250" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-28" value="Total Accidents&lt;div&gt;Fatal Accidents&lt;/div&gt;&lt;div&gt;AccidentIDKey&lt;/div&gt;&lt;div&gt;CauseIDKey&lt;/div&gt;&lt;div&gt;environmentIDKey&lt;/div&gt;&lt;div&gt;VictimsIDKey&lt;/div&gt;&lt;div&gt;LocationIDKey&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-27" vertex="1">
+          <mxGeometry y="50" width="250" height="115" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-29" value="Dim_Location" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="950" y="725" width="190" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-30" value="&lt;div&gt;LocationID (PK)&lt;/div&gt;Area&lt;div&gt;Hospital&amp;nbsp;&lt;/div&gt;&lt;div&gt;RoadName&lt;/div&gt;&lt;div&gt;Coordinates&lt;/div&gt;&lt;div&gt;AccidentID (SK)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-29" vertex="1">
+          <mxGeometry y="50" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-31" value="Dim_PatientDiamension" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1010" y="190" width="190" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-32" value="&lt;div&gt;AccidentID (PK)&lt;/div&gt;Name&lt;div&gt;Age&lt;/div&gt;&lt;div&gt;Gender&lt;/div&gt;&lt;div&gt;Condition&lt;/div&gt;&lt;div&gt;Date&lt;/div&gt;&lt;div&gt;locationID&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-31" vertex="1">
+          <mxGeometry y="50" width="190" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-33" value="Dim_environment" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1370" y="465" width="190" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-34" value="&lt;div&gt;environmentID (PK)&lt;/div&gt;&lt;div&gt;RoadLighting (YES/NO)&lt;/div&gt;&lt;div&gt;Obstacles&lt;/div&gt;&lt;div&gt;SurroundingObstacles&lt;/div&gt;&lt;div&gt;AccidentID (SK)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-33" vertex="1">
+          <mxGeometry y="50" width="190" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-35" value="Dim_Victims" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1210" y="685" width="190" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-36" value="&lt;div&gt;VictimsID (PK)&lt;/div&gt;AgeGroup&lt;div&gt;Gender&lt;/div&gt;&lt;div&gt;AccidentID (SK)&lt;/div&gt;&lt;div&gt;Role&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-35" vertex="1">
+          <mxGeometry y="50" width="190" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-37" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-28" target="yswiqm0d8ig4Vrar8J12-29" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="780" y="805" as="sourcePoint" />
+            <mxPoint x="830" y="755" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-38" value="Dim_CauseDiamension" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="1290" y="245" width="190" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-39" value="&lt;div&gt;CauseID (PK)&lt;/div&gt;PrimaryCause&lt;div&gt;ViolationType&lt;/div&gt;&lt;div&gt;RoadFlaw (YES/NO)&lt;/div&gt;&lt;div&gt;VehicleProblem (YES/NO)&lt;/div&gt;&lt;div&gt;AccidentID (SK)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;whiteSpace=wrap;" parent="yswiqm0d8ig4Vrar8J12-38" vertex="1">
+          <mxGeometry y="50" width="190" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-40" value="" style="endArrow=none;html=1;rounded=0;exitX=0.964;exitY=0.021;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-27" target="yswiqm0d8ig4Vrar8J12-32" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1020" y="635" as="sourcePoint" />
+            <mxPoint x="1070" y="585" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-41" value="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-28" target="yswiqm0d8ig4Vrar8J12-39" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="970" y="635" as="sourcePoint" />
+            <mxPoint x="1020" y="585" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-42" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-28" target="yswiqm0d8ig4Vrar8J12-34" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1050" y="615" as="sourcePoint" />
+            <mxPoint x="1100" y="565" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="yswiqm0d8ig4Vrar8J12-43" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0;exitDx=0;exitDy=0;" parent="1" source="yswiqm0d8ig4Vrar8J12-28" target="yswiqm0d8ig4Vrar8J12-35" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1030" y="665" as="sourcePoint" />
+            <mxPoint x="1080" y="615" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
