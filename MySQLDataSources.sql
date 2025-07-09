@@ -1,139 +1,175 @@
 USE weatherpredictionsource;
--- DIMENSION TABLES
+
+CREATE TABLE GovOffice (
+    OfficeID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(20),
+    Address VARCHAR(60),
+    contact_number VARCHAR(20),  -- Changed to VARCHAR
+    email VARCHAR(60),           -- Increased length
+    headOffice VARCHAR(20),
+    established_date DATE,
+    workersCount INT,            -- Fixed spelling
+    annualBudget DOUBLE,
+    website VARCHAR(60),
+    last_audit_date DATE
+);
+
+CREATE TABLE ContributedEmployee (
+    EmployeeID INT PRIMARY KEY AUTO_INCREMENT,
+    Fname VARCHAR(20),
+    Lname VARCHAR(20),
+    Address VARCHAR(60),
+    ContactNo VARCHAR(20),       -- Changed to VARCHAR
+    Email VARCHAR(60),
+    JoinedDate DATE,
+    OfficeID INT,
+    FOREIGN KEY (OfficeID) REFERENCES GovOffice(OfficeID)
+);
+
+CREATE TABLE Area (
+    AreaID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(20),
+    Measurements DOUBLE,
+    Coordinates POINT NOT NULL,
+    SPATIAL INDEX (Coordinates)  -- Corrected keyword
+);
+
+CREATE TABLE Districts (
+    DistrictID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(20),
+    AreaID INT,
+    FOREIGN KEY (AreaID) REFERENCES Area(AreaID)
+);
+
+CREATE TABLE Hospital (
+    HospitalID INT PRIMARY KEY AUTO_INCREMENT,
+    Name VARCHAR(255),
+    Address TEXT,
+    hospital_type VARCHAR(100),  -- Renamed from 'type' (reserved word)
+    postal_code VARCHAR(20),
+    contact_number VARCHAR(20),
+    email VARCHAR(255),
+    website_url VARCHAR(255),
+    number_of_doctors INT,
+    number_of_nurses INT,
+    number_of_icu_beds INT,
+    number_of_beds INT,
+    status VARCHAR(50),
+    last_inspection_date DATE,
+    DistrictID INT,
+    AreaID INT,
+    FOREIGN KEY (DistrictID) REFERENCES Districts(DistrictID),
+    FOREIGN KEY (AreaID) REFERENCES Area(AreaID)
+);
+
+CREATE TABLE AccidentPatient (
+    PatientID INT PRIMARY KEY AUTO_INCREMENT,
+    Fname VARCHAR(20),
+    Lname VARCHAR(20),
+    ContactName VARCHAR(20),    -- Changed to VARCHAR
+    Address VARCHAR(60),
+    Email VARCHAR(60),          -- Increased length
+    Gender VARCHAR(20),
+    ConditionOfPatient VARCHAR(20),
+    Age INT,
+    admittedDate DATE,          -- Fixed spelling
+    DistrictID INT,
+    AreaID INT,
+    HospitalID INT,             -- Fixed spelling
+    FOREIGN KEY (DistrictID) REFERENCES Districts(DistrictID),
+    FOREIGN KEY (AreaID) REFERENCES Area(AreaID),
+    FOREIGN KEY (HospitalID) REFERENCES Hospital(HospitalID)
+);
 
 CREATE TABLE Urbanization (
-    UrbanizationID VARCHAR(50) PRIMARY KEY,
-    WasteGeneration VARCHAR(100),
-    Landuse VARCHAR(100),
-    HousingDetails VARCHAR(100),
-    PredictedHousing VARCHAR(100),
-    DailyCommunityPopulation INT
+    UrbanizationID INT PRIMARY KEY AUTO_INCREMENT,
+    WasteGeneration DOUBLE,
+    LandUse DOUBLE,
+    AffordableHousingUnits INT,
+    PredictedHousing INT,
+    MonthlyCommunityPopulation DOUBLE,
+    ConductedDate DATE,
+    OfficeID INT,
+    EmployeeID INT,
+    AreaID INT,
+    FOREIGN KEY (AreaID) REFERENCES Area(AreaID),
+    FOREIGN KEY (EmployeeID) REFERENCES ContributedEmployee(EmployeeID),
+    FOREIGN KEY (OfficeID) REFERENCES GovOffice(OfficeID)
 );
 
-CREATE TABLE Pollutant (
-    PollutantID VARCHAR(50) PRIMARY KEY,
-    GroundLevelOzone FLOAT,
-    PM_Value FLOAT,
-    CarbonMonoxide FLOAT,
-    SulfurDioxide FLOAT,
-    NitrogenDioxide FLOAT
+CREATE TABLE MetrologicalConditions (
+    MetrologicalID INT PRIMARY KEY AUTO_INCREMENT,
+    Temperature DOUBLE,
+    Humidity DOUBLE,
+    Pressure DOUBLE,
+    Precipitation DOUBLE,
+    WindSpeed DOUBLE,
+    DateRecorded DATE,
+    EmployeeID INT,
+    DistrictID INT,
+    AreaID INT,
+    FOREIGN KEY (EmployeeID) REFERENCES ContributedEmployee(EmployeeID),
+    FOREIGN KEY (DistrictID) REFERENCES Districts(DistrictID),
+    FOREIGN KEY (AreaID) REFERENCES Area(AreaID)
 );
 
-CREATE TABLE MeteorologicalConditions (
-    MetrologicalID VARCHAR(50) PRIMARY KEY,
-    Temperature FLOAT,
-    Humidity FLOAT,
-    Pressure FLOAT,
-    Precipitation FLOAT,
-    WindSpeed FLOAT
+CREATE TABLE PollutantData (
+    PollutantID INT PRIMARY KEY AUTO_INCREMENT,
+    GroundLevelOzone DOUBLE,
+    PM_Value DOUBLE,
+    CarbonMonoxide DOUBLE,
+    SulfurDioxide DOUBLE,
+    NitrogenDioxide DOUBLE,
+    DateMeasured DATE,
+    HealthyStatus VARCHAR(20),
+    EmployeeID INT,
+    DistrictID INT,
+    AreaID INT,
+    FOREIGN KEY (EmployeeID) REFERENCES ContributedEmployee(EmployeeID),
+    FOREIGN KEY (DistrictID) REFERENCES Districts(DistrictID),
+    FOREIGN KEY (AreaID) REFERENCES Area(AreaID)
 );
 
-CREATE TABLE Date (
-    DateID VARCHAR(50) PRIMARY KEY,
-    Year INT,
-    Month INT,
-    Day INT
-);
-
-CREATE TABLE Location (
-    LocationID VARCHAR(50) PRIMARY KEY,
-    Area VARCHAR(100),
-    Hospital VARCHAR(100),
-    RoadName VARCHAR(100),
-    Coordinates VARCHAR(100)
-);
-
--- FACT TABLES
-
-CREATE TABLE AirQualityMeasurement (
-    MeasurementID VARCHAR(50) PRIMARY KEY,
-    UrbanizationID VARCHAR(50),
-    MetrologicalID VARCHAR(50),
-    PollutantID VARCHAR(50),
-    DateID VARCHAR(50),
-    AQILevel FLOAT,
-    RainPrediction VARCHAR(50),
-    FOREIGN KEY (UrbanizationID) REFERENCES Urbanization(UrbanizationID),
-    FOREIGN KEY (MetrologicalID) REFERENCES MeteorologicalConditions(MetrologicalID),
-    FOREIGN KEY (PollutantID) REFERENCES Pollutant(PollutantID),
-    FOREIGN KEY (DateID) REFERENCES Date(DateID)
-);
-
-CREATE TABLE WeatherConditions (
-    WeatherID VARCHAR(50) PRIMARY KEY,
-    MetrologicalID VARCHAR(50),
-    DateID VARCHAR(50),
-    Temperature FLOAT,
-    Humidity FLOAT,
-    Pressure FLOAT,
-    Precipitation FLOAT,
-    WeatherDescription VARCHAR(100),
-    FOREIGN KEY (MetrologicalID) REFERENCES MeteorologicalConditions(MetrologicalID),
-    FOREIGN KEY (DateID) REFERENCES Date(DateID)
-);
-
--- ACCIDENT RELATED TABLES
-
-CREATE TABLE Accident (
-    AccidentID VARCHAR(50) PRIMARY KEY,
-    AccidentType VARCHAR(50),
-    AccidentTime DATETIME,
-    LocationID VARCHAR(50),
-    CauseID VARCHAR(50),
-    EnvironmentID VARCHAR(50),
-    FOREIGN KEY (LocationID) REFERENCES Location(LocationID),
-    FOREIGN KEY (CauseID) REFERENCES Cause(CauseID),
-    FOREIGN KEY (EnvironmentID) REFERENCES Environment(EnvironmentID)
-);
-
-CREATE TABLE AccidentDetails (
-    DetailID VARCHAR(50) PRIMARY KEY,
-    AccidentID VARCHAR(50),
-    TotalVehiclesInvolved INT,
-    Fatalities INT,
-    Injuries INT,
-    FOREIGN KEY (AccidentID) REFERENCES Accident(AccidentID)
-);
-
-CREATE TABLE Cause (
-    CauseID VARCHAR(50) PRIMARY KEY,
-    PrimaryCause VARCHAR(100),
+CREATE TABLE HospitalAccidentReport (
+    Id INT PRIMARY KEY AUTO_INCREMENT,
+    PrimaryCause VARCHAR(255),
     ViolationType VARCHAR(100),
-    RoadFlaw BOOLEAN,
-    VehicleProblem BOOLEAN
+    RoadFlaw VARCHAR(3) CHECK (RoadFlaw IN ('YES', 'NO')),
+    VehicleProblem VARCHAR(3) CHECK (VehicleProblem IN ('YES', 'NO')),
+    PatientCondition VARCHAR(3) CHECK (PatientCondition IN ('YES', 'NO')),
+    DateRecorded DATE,
+    HospitalID INT,
+    FOREIGN KEY (HospitalID) REFERENCES Hospital(HospitalID)
 );
 
-CREATE TABLE Environment (
-    EnvironmentID VARCHAR(50) PRIMARY KEY,
-    RoadLighting BOOLEAN,
-    Obstacles VARCHAR(100),
-    SurroundingObstacles VARCHAR(100)
+CREATE TABLE PatientDetails (
+    IdPatientDetails INT PRIMARY KEY AUTO_INCREMENT,
+    Id INT,
+    PatientID INT,
+    FOREIGN KEY (Id) REFERENCES HospitalAccidentReport(Id),
+    FOREIGN KEY (PatientID) REFERENCES AccidentPatient(PatientID)
 );
 
-CREATE TABLE Victim (
-    VictimID VARCHAR(50) PRIMARY KEY,
-    Name VARCHAR(100),
-    Age INT,
-    Gender VARCHAR(10),
-    Role VARCHAR(50),
-    AccidentID VARCHAR(50),
-    FOREIGN KEY (AccidentID) REFERENCES Accident(AccidentID)
+CREATE TABLE Victims (
+    VictimsID INT PRIMARY KEY AUTO_INCREMENT,
+    AgeGroup VARCHAR(50),
+    Gender VARCHAR(50),
+    Role VARCHAR(100),
+    PatientID INT,
+    FOREIGN KEY (PatientID) REFERENCES AccidentPatient(PatientID)
 );
 
-CREATE TABLE Vehicle (
-    VehicleID VARCHAR(50) PRIMARY KEY,
-    VehicleType VARCHAR(50),
-    LicensePlate VARCHAR(20),
-    AccidentID VARCHAR(50),
-    FOREIGN KEY (AccidentID) REFERENCES Accident(AccidentID)
+CREATE TABLE AccidentEnv (
+    EnvironmentID INT PRIMARY KEY AUTO_INCREMENT,
+    Location VARCHAR(255),
+    Environment VARCHAR(100),
+    Lighting VARCHAR(50),
+    Obstacles VARCHAR(255),
+    Hazards VARCHAR(255),
+    Terrain VARCHAR(100),
+    DateRecorded DATETIME,
+    DescriptionContent TEXT,
+    PatientID INT,
+    FOREIGN KEY (PatientID) REFERENCES AccidentPatient(PatientID)
 );
-
-CREATE TABLE Patient (
-    PatientID VARCHAR(50) PRIMARY KEY,
-    Name VARCHAR(100),
-    Age INT,
-    Gender VARCHAR(10),
-    PatientCondition VARCHAR(50),
-    AccidentID VARCHAR(50),
-    FOREIGN KEY (AccidentID) REFERENCES Accident(AccidentID)
-);
+ROLLBACK;
