@@ -33,4 +33,21 @@ A data warehouse for a clothing shop using Oracle (XE) and talend as the ETL pro
 <img width="866" height="519" alt="image" src="https://github.com/user-attachments/assets/7c649489-bade-47bb-abca-af7346d607b4" />
 <img width="866" height="521" alt="image" src="https://github.com/user-attachments/assets/d1911692-d59b-4fca-8f96-2cf9638eb3de" />
 
+## Contributing
 
+We welcome contributions from the community!
+
+1. **Fork the repository**
+2. **Create your feature branch**  
+   `git checkout -b feature/YourFeature`
+3. **Commit your changes**  
+   `git commit -am 'Add new feature'`
+4. **Push to the branch**  
+   `git push origin feature/YourFeature`
+5. **Open a pull request**
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
